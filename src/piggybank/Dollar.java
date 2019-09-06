@@ -3,7 +3,7 @@ package src.piggybank;
 public class Dollar extends CoinAbstract
 {
     private String name = "$";
-    private double value = 1.0;
+    private double value = 1.00;
     private int qty;
 
     public Dollar()

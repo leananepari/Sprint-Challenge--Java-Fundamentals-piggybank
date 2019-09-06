@@ -1,5 +1,6 @@
 package src.piggybank;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -47,13 +48,21 @@ public class Main
         } else {
             for (int i = 0; i < piggyBank.size(); i++) {
                 if (value > 0) {
-                    if (piggyBank.get(i).getTotalValue() <= value) {
+                    if (Math.round(piggyBank.get(i).getTotalValue() * 100.0) / 100.0 <= value) {
                         value -= piggyBank.get(i).getTotalValue();
                         piggyBank.remove(i);
+                        i--;
                     } else
                     {
-                        
+                        double numOfCoins = Math.floor(value / piggyBank.get(i).getValue());
+                        int intNumOfCoins = (int)numOfCoins;
+                        value -= Math.ceil(piggyBank.get(i).getValue() * numOfCoins);
+                        value = Math.round(value * 100.0) / 100.0;
+                        piggyBank.get(i).setQty(piggyBank.get(i).getQty() - intNumOfCoins);
                     }
+                } else
+                {
+                    break;
                 }
             }
         }
@@ -74,5 +83,10 @@ public class Main
         printPiggyBank(piggyBank);
         System.out.println("**************");
         printValueOfPiggyBank(piggyBank);
+
+        subtractAmount(1.5);
+        System.out.println("AFTER SUBTRACT");
+        printPiggyBank(piggyBank);
+
     }
 }
