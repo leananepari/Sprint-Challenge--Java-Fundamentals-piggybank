@@ -14,7 +14,6 @@ public class Nickel extends CoinAbstract
     public Nickel(int qty)
     {
         this.qty = qty;
-        this.value = this.value * qty;
     }
 
     //Getters
@@ -45,7 +44,7 @@ public class Nickel extends CoinAbstract
     @Override
     public double getTotalValue()
     {
-        return this.value;
+        return this.value * this.qty;
     }
 
     //Setters

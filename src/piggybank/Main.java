@@ -45,10 +45,17 @@ public class Main
         {
             System.out.println("Can't remove this amount!");
         } else {
-            piggyBank.forEach((c) -> {
-
-                value -= c.getTotalValue();
-            });
+            for (int i = 0; i < piggyBank.size(); i++) {
+                if (value > 0) {
+                    if (piggyBank.get(i).getTotalValue() <= value) {
+                        value -= piggyBank.get(i).getTotalValue();
+                        piggyBank.remove(i);
+                    } else
+                    {
+                        
+                    }
+                }
+            }
         }
     }
 

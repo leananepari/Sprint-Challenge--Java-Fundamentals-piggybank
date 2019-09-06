@@ -14,7 +14,6 @@ public class Quarter extends CoinAbstract
     public Quarter(int qty)
     {
         this.qty = qty;
-        this.value = this.value * qty;
     }
 
     //Getters
@@ -45,7 +44,7 @@ public class Quarter extends CoinAbstract
     @Override
     public double getTotalValue()
     {
-        return this.value;
+        return this.value * this.qty;
     }
 
     //Setters
