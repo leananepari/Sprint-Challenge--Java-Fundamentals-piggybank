@@ -44,7 +44,7 @@ public class Penny extends CoinAbstract
     @Override
     public double getTotalValue()
     {
-        return this.value * this.qty;
+        return Math.round(this.value * this.qty * 100.0) / 100.0;
     }
 
     //Setters
